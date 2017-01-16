@@ -840,8 +840,12 @@ se = c(se0,se1,se2,se3,se4,se5,be)
 e = data.frame(iteration,error,color_label,se)
 pd <- position_dodge(0.2)
 
+#ggplot(e, aes(x=iteration, y=error, colour=color_label)) + 
+#  geom_errorbar(aes(ymin=error-se, ymax=error+se), group = color_label, width=.2, position=pd) +
+#  geom_line(position=pd) +
+#  geom_point(position=pd)
+
 ggplot(e, aes(x=iteration, y=error, colour=color_label)) + 
-  geom_errorbar(aes(ymin=error-se, ymax=error+se), width=.2, group = color_label, position=pd) +
+  geom_errorbar(aes(ymin=error-se, ymax=error+se), width=.2, position=pd) +
   geom_line(position=pd) +
   geom_point(position=pd)
-
